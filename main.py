@@ -17,3 +17,11 @@ def cloneGrid(grid):
         newList.append(row[:])
 
     return newList
+
+
+def cloneRow(row):
+    newRow = []
+    for member in row:
+        newRow.append(member)
+
+    return newRow
