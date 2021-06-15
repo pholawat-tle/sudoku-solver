@@ -90,3 +90,20 @@ def checkSmallGridLegal(grid):
 
 def checkColumnsLegal(grid):
     return checkRowsLegal(rotateGrid(grid))
+
+
+def checkGridLegal(grid):
+    smallGrids = checkSmallGridLegal(grid)
+    rows = checkRowsLegal(grid)
+    columns = checkColumnsLegal(grid)
+    return smallGrids and rows and columns
+
+
+def checkCompleteGrid(grid):
+    if(not checkGridLegal(grid)):
+        return False
+    for row in grid:
+        if 0 in row:
+            return False
+
+    return True
