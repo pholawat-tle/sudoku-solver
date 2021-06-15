@@ -25,3 +25,28 @@ def cloneRow(row):
         newRow.append(member)
 
     return newRow
+
+
+def checkRowsLegal(grid):
+    gridClone = cloneGrid(grid)
+
+    answer = True
+    for row in gridClone:
+        rowAnswer = checkRowLegal(row)
+        answer = answer and rowAnswer
+        if answer == False:
+            break
+    return answer
+
+
+def checkRowLegal(row):
+    temp = []
+    rowClone = cloneRow(row)
+    for _ in row:
+        child = rowClone.pop()
+        if child != 0:
+            if child not in temp:
+                temp.append(child)
+            else:
+                return False
+    return True
