@@ -128,12 +128,14 @@ def solve(grid):
                 for n in range(1, 10):
                     if possible(grid, x, y, n):
                         grid[y][x] = n
-                        solve(grid)
-                        grid[y][x] = 0
-                return
+                        if solve(grid):
+                            return True
+                        else:
+                            grid[y][x] = 0
+                return False
 
-    prettyGrid(grid)
-    return
+    return True
 
 
 solve(grid)
+prettyGrid(grid)
