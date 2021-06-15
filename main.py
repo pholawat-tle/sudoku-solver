@@ -61,3 +61,7 @@ def checkRowLegal(row):
             else:
                 return False
     return True
+
+
+def checkColumnsLegal(grid):
+    return checkRowsLegal(rotateGrid(grid))
