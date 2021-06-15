@@ -27,6 +27,17 @@ def cloneRow(row):
     return newRow
 
 
+def rotateGrid(grid):
+    rotatedGrid = []
+
+    for i in range(9):
+        rotatedGrid.append([])
+        for j in range(9):
+            rotatedGrid[i].append(grid[j][i])
+
+    return rotatedGrid
+
+
 def checkRowsLegal(grid):
     gridClone = cloneGrid(grid)
 
