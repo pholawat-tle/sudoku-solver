@@ -107,3 +107,33 @@ def checkCompleteGrid(grid):
             return False
 
     return True
+
+
+def possible(grid, x, y, n):
+    gridClone = cloneGrid(grid)
+    gridClone[y][x] = n
+    return checkGridLegal(gridClone)
+
+
+def prettyGrid(grid):
+    for row in grid:
+        print(row)
+    print()
+
+
+def solve(grid):
+    for y in range(9):
+        for x in range(9):
+            if grid[y][x] == 0:
+                for n in range(1, 10):
+                    if possible(grid, x, y, n):
+                        grid[y][x] = n
+                        solve(grid)
+                        grid[y][x] = 0
+                return
+
+    prettyGrid(grid)
+    return
+
+
+solve(grid)
